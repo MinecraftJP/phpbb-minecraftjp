@@ -1,0 +1,3 @@
+minecraftjp_phpbb_controller:
+    path: /minecraftjp/{action}
+    defaults: { _controller: minecraftjp.phpbb.controller:handle }

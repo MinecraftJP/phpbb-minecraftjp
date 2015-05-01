@@ -1,0 +1,25 @@
+{
+  "name": "minecraftjp/phpbb",
+  "type": "phpbb-extension",
+  "description": "A phpBB extension that allows you to login with minecraft.jp account.",
+  "homepage": "https://minecraft.jp/",
+  "time": "2015-04-30",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ayunyan",
+      "email": "ayunyan@gmail.com"
+    }
+  ],
+  "version": "1.0.0",
+  "require": {
+    "php": ">=5.3.3",
+    "minecraftjp/minecraftjp-php-sdk": ">=1.1.1"
+  },
+  "extra": {
+    "display-name": "MinecraftJP",
+    "soft-require": {
+      "phpbb/phpbb": ">=3.1.0-RC2,<3.2.*@dev"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+parameters:
+    minecraftjp.phpbb.tables.user_minecraftjp: %core.table_prefix%user_minecraftjp
+
+services:
+    # Listeners
+    minecraftjp.phpbb.listener:
+        class: minecraftjp\phpbb\event\listener
+        arguments:
+            - @service_container
+            - @controller.helper
+            - @template
+            - @request
+            - @config
+        tags:
+            - { name: event.listener }
+    # Controllers
+    minecraftjp.phpbb.controller:
+        class: minecraftjp\phpbb\controller\main_controller
+        arguments:
+            - @service_container
+            - @controller.helper
+            - @template
+            - @request
+            - @config
+    # Models
+    minecraftjp.phpbb.model.user_minecraftjp:
+        class: minecraftjp\phpbb\model\user_minecraftjp
+        arguments:
+            - @cache.driver
+            - @service_container
+            - @dbal.conn
+            - @ext.manager
+            - %minecraftjp.phpbb.tables.user_minecraftjp%
+    # SessionStorage
+    minecraftjp.phpbb.session_storage:
+        class: minecraftjp\phpbb\phpbb_session_storage
+        arguments:
