@@ -31,7 +31,8 @@ services:
             - @dbal.conn
             - @ext.manager
             - %minecraftjp.phpbb.tables.user_minecraftjp%
-    # SessionStorage
-    minecraftjp.phpbb.session_storage:
-        class: minecraftjp\phpbb\phpbb_session_storage
+    # Security
+    minecraftjp.phpbb.security:
+        class: minecraftjp\phpbb\security
         arguments:
+            - @config

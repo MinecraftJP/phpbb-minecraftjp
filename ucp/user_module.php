@@ -11,11 +11,13 @@ class user_module {
         $mcjpUser = $userMinecraftjp->read($user->data['user_id']);
         $helper = $phpbb_container->get('controller.helper');
 
+        $token = $phpbb_container->get('minecraftjp.phpbb.security')->generateToken();
+
         $template->assign_vars(array(
             'MINECRAFTJP_IS_LINKED' => $mcjpUser !== false,
             'MINECRAFTJP_USERNAME' => $mcjpUser['username'],
             'MINECRAFTJP_LINK_URL' => $helper->route('minecraftjp_phpbb_controller', array('action' => 'login', 'type' => 'link'), true, false, UrlGeneratorInterface::ABSOLUTE_URL),
-            'MINECRAFTJP_UNLINK_URL' => $helper->route('minecraftjp_phpbb_controller', array('action' => 'unlink'), true, false, UrlGeneratorInterface::ABSOLUTE_URL),
+            'MINECRAFTJP_UNLINK_URL' => $helper->route('minecraftjp_phpbb_controller', array('action' => 'unlink', 'token' => $token), true, false, UrlGeneratorInterface::ABSOLUTE_URL),
         ));
         $this->tpl_name = 'minecraftjp_ucp_link';
         $this->page_title = 'MCJP_TITLE';

@@ -148,6 +148,14 @@ class main_controller {
 
     public function unlink() {
         global $user;
+
+        $token = request_var('token', '');
+        $security = $this->container->get('minecraftjp.phpbb.security');
+        if (!$security->validateToken($token)) {
+            $this->performRedirect('ucp');
+            exit;
+        }
+
         $userId = $user->data['user_id'];
         if (!empty($userId) && $userId != ANONYMOUS) {
             $userMinecraftjp = $this->container->get('minecraftjp.phpbb.model.user_minecraftjp');
