@@ -37,4 +37,16 @@
     {S_FORM_TOKEN}
 </form>
 
+<fieldset>
+    <legend>for Developer</legend>
+
+    <pre><code>
+        $userMinecraftjp = $phpbb_container->get('minecraftjp.phpbb.model.user_minecraftjp');
+        $minecraftUser = $userMinecraftjp->read($user->data['user_id']);
+
+        echo 'My username is ' . $minecraftUser['username'];
+        echo 'My UUID is ' . $minecraftUser['uuid'];
+    </code></pre>
+</fieldset>
+
 <!-- INCLUDE overall_footer.html -->

@@ -40,12 +40,10 @@ class listener implements EventSubscriberInterface {
     public function onPageHeaderAfter($event) {
         $mode = $this->request->variable('mode', '');
         if (!empty($this->config['minecraftjp_client_id']) && !empty($this->config['minecraftjp_client_secret'])) {
-            if ($mode == 'login' || $mode == 'register') {
-                $this->template->assign_vars(array(
-                    'MINECRAFTJP_ENABLED' => 1,
-                    'MINECRAFTJP_LOGIN_LINK' => $this->helper->route('minecraftjp_phpbb_controller', array('action' => 'login')),
-                ));
-            }
+            $this->template->assign_vars(array(
+                'MINECRAFTJP_ENABLED' => 1,
+                'MINECRAFTJP_LOGIN_LINK' => $this->helper->route('minecraftjp_phpbb_controller', array('action' => 'login')),
+            ));
         }
     }
 

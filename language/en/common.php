@@ -29,4 +29,5 @@ $lang = array_merge($lang, array(
     'MCJP_USER_DUPLICATE' => 'username or email is already taken.',
     'MCJP_NOT_LOGGED' => 'Not logged.',
     'MCJP_ALREADY_LINKED' => 'This account is already linked.',
+    'MCJP_MINECRAFT_ACCOUNT' => 'Minecraft Account',
 ));
